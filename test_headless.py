@@ -1,10 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service  # Import the Service class
-from selenium.webdriver.chrome.options import Options  # Import the Options class
+from selenium.webdriver.chrome.service import Options  # Import the Service class
+import os
+from dotenv import load_dotenv
 
-# Specify the path to your ChromeDriver executable
-driver_path = '/Users/nerdmonkey/bin/chromedriver'
+
+# Specify the path to your .env file
+dotenv_path = '.env'
+
+# Load the .env file
+load_dotenv(dotenv_path)
+
+driver_path = os.getenv("CHROME_DRIVER_PATH")
 
 # Create an Options object and add the --headless argument
 chrome_options = Options()
